@@ -1,0 +1,21 @@
+name: 'Increment Maven Version'
+description: 'Increements a maven version number'
+author: 'Tiago Pascoal'
+inputs:
+  version: 
+    required: true
+    description: 'Version to increment'
+  increment_type:
+    required: true
+    description: increment type (major, minor or patch)
+    default: patch
+  increment:
+    required: false
+    description: The value to increment the version by
+    default: '1'
+outputs:
+  version:
+      description: incremented version
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

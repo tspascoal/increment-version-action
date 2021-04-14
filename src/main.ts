@@ -4,7 +4,7 @@ async function run(): Promise<void> {
   const increments = ['major', 'minor', 'patch']
 
   try {
-    const version: string = core.getInput('version')
+    const version: string = core.getInput('version', {required: true})
     const incrementType: string = core.getInput('increment_type') || 'patch'
     const increment: number = parseInt(core.getInput('increment') || '1')
 

@@ -40,7 +40,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const increments = ['major', 'minor', 'patch'];
         try {
-            const version = core.getInput('version');
+            const version = core.getInput('version', { required: true });
             const incrementType = core.getInput('increment_type') || 'patch';
             const increment = parseInt(core.getInput('increment') || '1');
             const incrementTypeIdx = increments.indexOf(incrementType.toLowerCase());

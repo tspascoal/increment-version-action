@@ -1,6 +1,6 @@
 # Increment Version Action
 
-Sample action that implements a version number.
+Sample action that implements a version number incrementor.
 
 Version can be in the format `MAJOR.MINOR.PATCH-PRERELEASE`
 
@@ -13,7 +13,7 @@ Outputs a `version` variable
 usage:
 
 ```yaml
-- uses: tspascoal/increment-version-action
+- uses: tspascoal/increment-version-action@v1
   id: increment
   with:
     version: 2.0-alpha
@@ -22,7 +22,5 @@ usage:
 
 - run: echo new version ${{ steps.increment.outputs.version }}
 ```
-
-
 
 > Warning this is just a sample. Use at your own risk :)

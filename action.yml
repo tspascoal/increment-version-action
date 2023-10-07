@@ -17,5 +17,5 @@ outputs:
   version:
       description: incremented version
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'

@@ -13,7 +13,7 @@ Outputs a `version` variable
 usage:
 
 ```yaml
-- uses: tspascoal/increment-version-action@v1
+- uses: tspascoal/increment-version-action@v2
   id: increment
   with:
     version: 2.0-alpha
@@ -24,3 +24,5 @@ usage:
 ```
 
 > Warning this is just a sample. Use at your own risk :)
+
+> Note: Use v1 for node16 and v2 for node20 (recommended unless in an old runner version that doesn't support node20 yet).

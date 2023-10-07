@@ -17,14 +17,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
+      version_to_increment: "1.2.3"
       expected_version: "1.2.4"
     steps:
       - uses: actions/checkout@v3
       - uses: ./
         id: increment
+        name: increment ${{ env.version_to_increment }}
         with:
-          version: 1.2.3
-      - name: Test default increment
+          version: ${{ env.version_to_increment }}
+      - name: Fail if default increment is not expected value ${{ env.expected_version }}
         if: ${{ steps.increment.outputs.version != env.expected_version }}
         run: |
           echo "Invalid version. Expected ${{ env.expected_version }}"

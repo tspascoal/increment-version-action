@@ -26,6 +26,8 @@ jobs:
         name: increment ${{ env.version_to_increment }}
         with:
           version: ${{ env.version_to_increment }}
+      - name: show incremented version
+        run: echo '${{ steps.increment.outputs.version }}'
       - name: Fail if default increment is not expected value ${{ env.expected_version }}
         if: ${{ steps.increment.outputs.version != env.expected_version }}
         run: |

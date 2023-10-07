@@ -9,15 +9,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: |
           npm install
       - run: |
           npm run all
   test:
     runs-on: ubuntu-latest
+    env:
+      expected_version: "1.2.4"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
+        id: increment
         with:
           version: 1.2.3
+      - name: Test default increment
+        if: ${{ steps.increment.outputs.version != env.expected_version }}
+        run: |
+          echo "Invalid version. Expected ${{ env.expected_version }}"
+          exit 1
+
+
+
